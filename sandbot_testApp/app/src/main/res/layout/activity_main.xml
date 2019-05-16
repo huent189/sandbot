@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_playOnScreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play video on screen"
+        android:layout_gravity="center"/>
+    <Button
+        android:id="@+id/btn_playUsingProjector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play video using projector"
+        android:layout_gravity="center" />
+    <Button
+        android:id="@+id/btn_droidRecognize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Droid Recognizer"
+        android:layout_gravity="center" />
+    <TextView
+        android:id="@+id/tv_loggingText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="@dimen/home_top_height" />
+    <TextView
+        android:id="@+id/tv_recognize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NULL"
+        android:textSize="@dimen/home_top_height" />
+</LinearLayout>
