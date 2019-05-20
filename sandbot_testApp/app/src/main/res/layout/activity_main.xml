@@ -16,12 +16,7 @@
         android:layout_height="wrap_content"
         android:text="Play video using projector"
         android:layout_gravity="center" />
-    <Button
-        android:id="@+id/btn_droidRecognize"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Droid Recognizer"
-        android:layout_gravity="center" />
+
     <TextView
         android:id="@+id/tv_loggingText"
         android:layout_width="match_parent"

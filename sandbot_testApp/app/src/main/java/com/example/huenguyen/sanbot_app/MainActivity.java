@@ -24,14 +24,15 @@ import com.sanbot.opensdk.function.unit.interfaces.speech.SpeakListener;
 public class MainActivity extends BindBaseActivity {
     private Button btn_playOnScreen;
     private Button btn_playOnProjector;
-    private Button btn_droidRecognize;
     private TextView tv_loggingText;
     private  TextView tv_recognize;
+
     private ProjectorManager projectorManager = (ProjectorManager)getUnitManager(FuncConstant.PROJECTOR_MANAGER);
     private boolean projectorState = false;
     private SpeechManager speechManager =(SpeechManager) getUnitManager(FuncConstant.SPEECH_MANAGER);
     @Override
     protected void onMainServiceConnected() {
+        //turn on / off projector
         btn_playOnProjector.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,11 +41,14 @@ public class MainActivity extends BindBaseActivity {
                 Log.d("MainActivity", "onClick: " + projectorState);
             }
         });
+
         speechManager.startSpeak("Hello everyone, I'm Sandbot. Nice to meet you");
+
         speechManager.setOnSpeechListener(new RecognizeListener() {
             @Override
             public boolean onRecognizeResult(Grammar grammar) {
                 tv_loggingText.setText("content recognized: " + grammar.getText());
+                // test lenh play video
                 if(grammar.getText().toLowerCase().contains("play video")){
                     Intent intent = new Intent(MainActivity.this, VideoPlayerActivity.class);
                     startActivity(intent);
@@ -62,7 +66,7 @@ public class MainActivity extends BindBaseActivity {
             public void onRecognizeVolume(int i) {
                 tv_recognize.setText(new Integer(i).toString());
             }
-
+            // onStartRecognize, onStopRecognize and onError work only on Chinese
             @Override
             public void onStartRecognize() {
 
@@ -87,7 +91,6 @@ public class MainActivity extends BindBaseActivity {
         setContentView(R.layout.activity_main);
         btn_playOnScreen = findViewById(R.id.btn_playOnScreen);
         btn_playOnProjector = findViewById(R.id.btn_playUsingProjector);
-        btn_droidRecognize = findViewById(R.id.btn_droidRecognize);
         btn_playOnScreen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,13 +98,7 @@ public class MainActivity extends BindBaseActivity {
                 startActivity(intent);
             }
         });
-        btn_droidRecognize.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, DroidSpeechRecoginzer.class);
-                startActivity(intent);
-            }
-        });
+
         tv_loggingText = findViewById(R.id.tv_loggingText);
         tv_recognize = findViewById(R.id.tv_recognize);
     }
