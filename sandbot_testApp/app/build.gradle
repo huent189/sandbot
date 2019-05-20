@@ -36,6 +36,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    compile(name:'SanbotOpenSdk_V1.0.0_beta11', ext:'aar')
-    compile 'com.github.vikramezhil:DroidSpeech:v2.0.3'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.aar'])
 }
