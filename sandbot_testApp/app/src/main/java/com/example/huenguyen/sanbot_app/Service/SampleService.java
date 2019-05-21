@@ -1,4 +1,4 @@
-package com.example.huenguyen.sanbot_app;
+package com.example.huenguyen.sanbot_app.Service;
 
 import com.sanbot.opensdk.base.BindBaseService;
 
